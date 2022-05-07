@@ -1,8 +1,11 @@
 version: '3.7'
-
 services:
   app:
     build: .
 
     volumes:
       - .:/app:cached
+    entrypoint: ./entrypoint.sh
+    command: bash
+    stdin_open: true
+    tty: true
