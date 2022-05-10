@@ -58,3 +58,7 @@ RUN nodenv rehash
 ENV PATH "/app/bin:/app/node_modules/.bin:/root/.bundle/bin:$PATH"
 
 WORKDIR /app
+
+COPY Gemfile* /app
+RUN bundle install --jobs=4 --retry=3 \
+  && rm Gemfile*
